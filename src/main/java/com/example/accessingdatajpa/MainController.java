@@ -14,6 +14,8 @@ public class MainController {
 
     @Autowired
     private BuddyInfoRepo buddyInfoRepo;
+    @Autowired
+    private AddressBookRepo addressBookRepo;
 
 
     @RequestMapping(value = "/home")

@@ -42,17 +42,15 @@ public class AccessingDataJpaApplication {
 			addressBook.addBuddy(Khaled);
 			addressBook.addBuddy(Mo);
 
-			bookrepo.save(HR);
-			bookrepo.save(HJ);
-			bookrepo.save(Khaled);
-			bookrepo.save(Mo);
+			bookrepo.save(addressBook);
+
 
 
 			//fetch address book by findAll
 			log.info("");
 			log.info("Address book found with findAll(): ");
 			log.info("------------------------------");
-			for (BuddyInfo addressBook1 : bookrepo.findAll()) {
+			for (AddressBook addressBook1 : bookrepo.findAll()) {
 				log.info(addressBook1.toString());
 			}
 			log.info("");
