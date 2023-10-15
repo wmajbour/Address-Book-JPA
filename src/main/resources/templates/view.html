@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lab 4</title>
+    <style>
+        .newline {
+            display: block;
+        }
+        .buddy {
+
+        }
+    </style>
+</head>
+<body>
+<h1>List of Buddies</h1>
+    <p class="buddy" th:each="buddy : ${BuddyList} ">
+        <span class="newline">Id: <span th:text="${buddy.id}"></span></span>
+        Name: <span th:text="${buddy.name}"></span>
+        <span class="newline">Address: <span th:text="${buddy.address}"></span></span>
+        <span class="newline">Phone Number: <span th:text="${buddy.phoneNumber}"></span></span>
+    </p>
+</body>
+</html>
