@@ -1,4 +1,5 @@
 package com.example.accessingdatajpa;
+
 import java.util.List;
 
 
@@ -8,7 +9,15 @@ public class JPATest {
     BuddyInfo Waleed;
 
     AddressBook addressBook;
-    public void performJPA(){
+
+    public static void main(String[] args) {
+
+        JPATest test1 = new JPATest();
+        test1.performJPA();
+
+    }
+
+    public void performJPA() {
 
         BuddyInfo buddy1 = new BuddyInfo("Mo", "123 Street", "1234");
         buddy1.setId(1L);
@@ -35,7 +44,6 @@ public class JPATest {
         tx.commit();
 
 
-
         jakarta.persistence.Query q = em.createQuery("Select b FROM BuddyInfo b");
         jakarta.persistence.Query a = em.createQuery("Select a FROM AddressBook a");
 
@@ -45,14 +53,14 @@ public class JPATest {
 
         System.out.println("List of friends\n---------------");
 
-        for(BuddyInfo buddyInfo : results){
+        for (BuddyInfo buddyInfo : results) {
             System.out.println(buddyInfo);
 
         }
 
         System.out.println(("------------\nList of address books\n------------"));
 
-        for(AddressBook ad : results2){
+        for (AddressBook ad : results2) {
 
             System.out.println(ad);
 
@@ -60,13 +68,6 @@ public class JPATest {
 
         em.close();
         emf.close();
-
-    }
-
-    public static void main(String[] args) {
-
-        JPATest test1 = new JPATest();
-        test1.performJPA();
 
     }
 }

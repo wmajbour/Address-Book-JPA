@@ -1,19 +1,19 @@
 package com.example.accessingdatajpa;
 
 import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class AddressBook {
 
-    @Id
-    @GeneratedValue
-    private Long id;
-
     @JoinColumn
     @OneToMany(fetch = FetchType.EAGER)
     public List<BuddyInfo> buddies;
+    @Id
+    @GeneratedValue
+    private Long id;
 
 
     public AddressBook() {
@@ -38,11 +38,11 @@ public class AddressBook {
         }
     }
 
-    public Long getId(){
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(Long id){
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,20 +53,20 @@ public class AddressBook {
         return null;
     }
 
-    public List<BuddyInfo> getBuddies(){
+    public List<BuddyInfo> getBuddies() {
         return buddies;
     }
 
-    public void setBuddies(List<BuddyInfo> buddies){
+    public void setBuddies(List<BuddyInfo> buddies) {
         this.buddies = buddies;
 
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Address Book by ID: ").append(id).append("\n");
-        for(BuddyInfo buddy : buddies){
+        for (BuddyInfo buddy : buddies) {
             sb.append(buddy).append("\n");
         }
         return sb.toString();
